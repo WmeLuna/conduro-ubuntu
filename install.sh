@@ -118,14 +118,14 @@ _task "update sshd_config"
     _cmd 'wget --timeout=5 --tries=2 --quiet -c https://raw.githubusercontent.com/conduro/ubuntu/main/sshd.conf -O /etc/ssh/sshd_config'
 
 # description
-_task "disable system logging"
-    _cmd 'systemctl stop systemd-journald.service'
-    _cmd 'systemctl disable systemd-journald.service'
-    _cmd 'systemctl mask systemd-journald.service'
+#_task "disable system logging"
+#    _cmd 'systemctl stop systemd-journald.service'
+#    _cmd 'systemctl disable systemd-journald.service'
+#    _cmd 'systemctl mask systemd-journald.service'
 
-    _cmd 'systemctl stop rsyslog.service'
-    _cmd 'systemctl disable rsyslog.service'
-    _cmd 'systemctl mask rsyslog.service'
+#    _cmd 'systemctl stop rsyslog.service'
+#    _cmd 'systemctl disable rsyslog.service'
+#    _cmd 'systemctl mask rsyslog.service'
 
 # description
 _task "disable snapd"
@@ -157,12 +157,12 @@ _task "configure firewall"
 
 # description
 _task "free disk space"
-    _cmd 'find /var/log -type f -delete'
-    _cmd 'rm -rf /usr/share/man/*'
+    #_cmd 'find /var/log -type f -delete'
+    #_cmd 'rm -rf /usr/share/man/*'
     _cmd 'apt-get autoremove -y'
     _cmd 'apt-get autoclean -y'
-    # _cmd "purge" 'apt-get remove --purge -y'
-    # _cmd "clean" 'apt-get clean && sudo apt-get --purge autoremove -y'
+    _cmd "purge" 'apt-get remove --purge -y'
+    _cmd "clean" 'apt-get clean && sudo apt-get --purge autoremove -y'
 
 # description
 _task "reload system"
