@@ -161,8 +161,8 @@ _task "free disk space"
     #_cmd 'rm -rf /usr/share/man/*'
     _cmd 'apt-get autoremove -y'
     _cmd 'apt-get autoclean -y'
-    _cmd "purge" 'apt-get remove --purge -y'
-    _cmd "clean" 'apt-get clean && sudo apt-get --purge autoremove -y'
+    _cmd 'apt-get remove --purge -y'
+    _cmd 'apt-get clean && sudo apt-get --purge autoremove -y'
 
 # description
 _task "reload system"
@@ -170,7 +170,7 @@ _task "reload system"
     _cmd 'update-grub2'
     _cmd 'systemctl restart systemd-timesyncd'
     _cmd 'ufw --force enable'
-    _cmd 'service ssh restart'
+    #_cmd 'service ssh restart'
 
 # finish last task
 printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}${TASK}\n"
